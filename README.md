@@ -22,8 +22,9 @@ per = Perceptron(
     treshold=0
 )
 
-per.execute()
-
+train = per.train()
+test = per.test(data, get_new_weight(train))
+percentage = per.get_percentage(test)
 
 ```
 
