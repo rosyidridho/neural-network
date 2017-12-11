@@ -24,7 +24,6 @@ class LVQ:
                 w[0] = map(lambda x, y: (float(x) + (float(alpha) * (float(y)-float(x)))), w[0], vektor[0])
         return weight
 
-    
     def train(self, epoh=None):
         if epoh == None:
             pass
@@ -36,4 +35,11 @@ class LVQ:
                     self.weight = self.get_new_weight(n, self.weight, self.alpha, v)
                     self.alpha = self.dec_alpha * self.alpha
         return self.weight
-    
+
+    def test(self, vektor, weight):
+        a = []
+        for v in vektor:
+            data = self.get_weight(v, weight)
+            b = self.check_weight(data)
+            a.append(b)
+        return a
