@@ -28,4 +28,38 @@ percentage = per.get_percentage(test)
 
 ```
 
+## LVQ Example
+```python
 
+from methods import LVQ
+
+if __name__ == '__main__':
+    vektor = [
+        [[0,1,1,0], 1],
+        [[0,0,1,1], 2],
+        [[1,1,1,1], 1],
+        [[1,0,0,1], 2]
+    ]
+
+    weight = [
+        [[1,1,1,0],1],
+        [[1,0,1,1], 2]
+    ]
+
+    alpha = 0.05
+    dec_alpha = 0.1
+
+    lv = LVQ(vektor, weight, alpha, dec_alpha)
+
+    new_weight = lv.train(epoh=1)
+
+    vektor_test = [
+        [[1,1,1,0], 1],
+        [[1,0,1,1], 1],
+        
+    ]
+
+    print lv.test(vektor_test, new_weight)
+
+
+```
