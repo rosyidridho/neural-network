@@ -33,7 +33,7 @@ class LVQ:
                     g = self.get_weight(v, self.weight)
                     n = self.check_weight(g)
                     self.weight = self.get_new_weight(n, self.weight, self.alpha, v)
-                    self.alpha = self.dec_alpha * self.alpha
+                self.alpha = self.dec_alpha * self.alpha
         return self.weight
 
     def test(self, vektor, weight):
